@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "C8CF89C3F2B41F4379C0015C6043DDD3F305BF42",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "C8CF89C3F2B41F4379C0015C6043DDD3F305BF42" : 0,
+    "D8A97D78220E59E1C3EFE7C8BABC57D0768F987F" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CD228030-1662-416E-8C53-64299A5EC7BD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "C8CF89C3F2B41F4379C0015C6043DDD3F305BF42" : "SongLib\/",
+    "D8A97D78220E59E1C3EFE7C8BABC57D0768F987F" : "..\/..\/Desktop\/SongsTestApp"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SongLib",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SongLib.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Joceignacio\/SongLib.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C8CF89C3F2B41F4379C0015C6043DDD3F305BF42"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Joceignacio\/Songs-library.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D8A97D78220E59E1C3EFE7C8BABC57D0768F987F"
+    }
+  ]
+}
