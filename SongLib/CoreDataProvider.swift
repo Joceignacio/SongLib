@@ -61,8 +61,6 @@ class CoreDataProvider {
                 }
             }
             if(isNew == true){
-                print("NEW SONG.id = \(newList[i].id)")
-                print("NEW SONG.label = \(newList[i].label)")
                 listToAdd.append(newList[i])
             }
         }
@@ -91,10 +89,8 @@ class CoreDataProvider {
                 
                 myCollection.insertItemsAtIndexPaths(indexPath)
             }
-            //print("indexPaths.count after = \(indexPaths.count)")
-            
             listToAdd.removeAll()
-            //myCollection.reloadData()
+            
         }
         var indexToDel : [Int] =  []
         for var i = 0; i < entities.count ; i++ {
@@ -112,16 +108,15 @@ class CoreDataProvider {
         if (indexToDel.count > 0){
             var indexPaths: [NSIndexPath] = []
             
-            //getting indexpaths of all cells
+            
             for s in 0..<myCollection .numberOfSections() {
                 for i in 0..<myCollection.numberOfItemsInSection(s) {
                     indexPaths.append(NSIndexPath(forItem: i, inSection: s))
                 }
             }
-            print("indexToDel=\(indexToDel)")
+            
             var counter : Int = indexToDel.count-1
             while(counter >= 0 ){
-                print("counter = \(counter)")
                 let del = indexToDel[counter]
                 delRecs(entities[counter].id, lab: entities[del].label)
                 entities.removeAtIndex(del)
@@ -137,8 +132,6 @@ class CoreDataProvider {
     }
 
     func delRecs( id : Int32, lab : String){
-        print("Del Song with id = \(id)")
-        print("Del Song with label = \(lab)")
         db.operation { (context, save) -> Void in
             let del: Songs? = try! context.request(Songs.self).filteredWith("id", equalTo: "\(id)").fetch().first
             if let del = del {

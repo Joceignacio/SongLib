@@ -36,7 +36,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     
         }
         else {
-            
             let jsonHelper: JSONHelper = JSONHelper()
             
             jsonHelper.lc = self
@@ -44,8 +43,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             _ = jsonHelper.getJSON()
             
             refresher.endRefreshing()
-            
-            //_ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updater"), userInfo: nil, repeats: false)
             
         }
     }
