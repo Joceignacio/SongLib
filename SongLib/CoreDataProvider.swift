@@ -4,10 +4,12 @@ import CoreData
 import SwiftyJSON
 
 class CoreDataProvider {
-    static let instance : CoreDataProvider = CoreDataProvider()
-    var entities: [Song] = []
+    static let instance : CoreDataProvider = CoreDataProvider()//creates instance of CoreDataProvider
+    var entities: [Song] = [] // list of current data
     var db: CoreDataDefaultStorage
-    
+    func updateData() {
+        self.entities = try! db.fetch(Request<Songs>()).map(Song.init)
+    }
     private init() {
          db = {
             let store = CoreData.Store.Named("SongLib")
@@ -18,12 +20,7 @@ class CoreDataProvider {
             }()
         updateData()
     }
-    
-    func updateData() {
-        self.entities = try! db.fetch(Request<Songs>()).map(Song.init)
-    }
-    
-    func insertRecs(list : [Song], myCollection : UICollectionView){
+    func createCoreData (list : [Song], myCollection : UICollectionView){
         for song in list {
             db.operation { (context, save) -> Void in
                 let newTask: Songs = try! context.new()
@@ -37,7 +34,7 @@ class CoreDataProvider {
         updateData()
         myCollection.reloadData()
     }
-    
+    //inserting new recs to CoreData
     func insertRecs( songs : [Song]){
         for song in songs {
             db.operation { (context, save) -> Void in
@@ -50,7 +47,17 @@ class CoreDataProvider {
             }
         }
        }
-    
+    //removing obsolete entries from CoreData
+    func delRecs( id : Int32, lab : String){
+        db.operation { (context, save) -> Void in
+            let del: Songs? = try! context.request(Songs.self).filteredWith("id", equalTo: "\(id)").fetch().first
+            if let del = del {
+                try! context.remove([del])
+                save()
+            }
+        }
+    }
+    //finding changes
     func updateCore(newList : [Song], myCollection : UICollectionView){
         var listToAdd : [Song] = []
         for var i = 0; i < newList.count ; i++ {
@@ -66,7 +73,6 @@ class CoreDataProvider {
         }
         if listToAdd.count > 0{
             print("listToAdd.count = \(listToAdd.count)")
-            
             var indexPaths: [NSIndexPath] = []
             for s in 0..<myCollection.numberOfSections() {
                 for i in 0..<myCollection.numberOfItemsInSection(s) {
@@ -74,23 +80,16 @@ class CoreDataProvider {
                 }
             }
             print("indexPaths.count = \(indexPaths.count)")
-           
             insertRecs(listToAdd)
-            
             for addItem in listToAdd {
                 entities.append(addItem)
                 var newIndexPath : [NSIndexPath] = []
-                
                 newIndexPath.append( NSIndexPath (forRow: indexPaths.count, inSection: 0))
-                
                 indexPaths.append( newIndexPath[0] )
-                
                 let indexPath : [NSIndexPath] = [indexPaths[indexPaths.count-1]]
-                
                 myCollection.insertItemsAtIndexPaths(indexPath)
             }
             listToAdd.removeAll()
-            
         }
         var indexToDel : [Int] =  []
         for var i = 0; i < entities.count ; i++ {
@@ -104,17 +103,13 @@ class CoreDataProvider {
                 indexToDel.append(i)
             }
         }
-        
         if (indexToDel.count > 0){
             var indexPaths: [NSIndexPath] = []
-            
-            
             for s in 0..<myCollection .numberOfSections() {
                 for i in 0..<myCollection.numberOfItemsInSection(s) {
                     indexPaths.append(NSIndexPath(forItem: i, inSection: s))
                 }
             }
-            
             var counter : Int = indexToDel.count-1
             while(counter >= 0 ){
                 let del = indexToDel[counter]
@@ -128,27 +123,11 @@ class CoreDataProvider {
         indexToDel.removeAll()
         //myCollection.reloadData()
         }
-        
-    }
-
-    func delRecs( id : Int32, lab : String){
-        db.operation { (context, save) -> Void in
-            let del: Songs? = try! context.request(Songs.self).filteredWith("id", equalTo: "\(id)").fetch().first
-            if let del = del {
-                try! context.remove([del])
-                save()
-            }
-        }
-        
     }
 }
-
-class Songs: NSManagedObject {
-}
-
+class Songs: NSManagedObject {}
 extension Songs {
     @NSManaged var id: Int32
     @NSManaged var author: String?
     @NSManaged var label: String?
 }
-

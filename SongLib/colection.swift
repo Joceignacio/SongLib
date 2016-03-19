@@ -1,6 +1,6 @@
 import UIKit
 import Foundation
 
-protocol listContainer{
+protocol colection{
     func getCollection() -> UICollectionView
 }

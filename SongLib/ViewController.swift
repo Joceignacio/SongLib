@@ -2,51 +2,32 @@ import UIKit
 import SugarRecord
 import CoreData
 import Foundation
-import Alamofire
-import SwiftyJSON
 
-var listToAdd : [Song] = []
-var indexToDel : [Int] = []
-
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, listContainer{
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, colection {
     
     @IBOutlet weak var noSongs: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    
+    //implementing func of protocol 'collection' wich returns collectionView of ViewController
     func getCollection() -> UICollectionView {
         return collectionView
     }
-    
+    // Creating instance of data class
     var dataProvider : CoreDataProvider = CoreDataProvider.instance
     var refresher : UIRefreshControl!
-    
     func refresh (){
+        let jsonHelper: JSONHelper = JSONHelper()
+        jsonHelper.cv = self
         if noSongs.hidden ==  false {
-            
             noSongs.hidden = true
-            
-            let jsonHelper: JSONHelper = JSONHelper()
-            
-            jsonHelper.lc = self
-            
             _ = jsonHelper.getJSON()
-            
             refresher.endRefreshing()
-                    
         }
         else {
-            let jsonHelper: JSONHelper = JSONHelper()
-            
-            jsonHelper.lc = self
-            
             _ = jsonHelper.getJSON()
-            
             refresher.endRefreshing()
-            
         }
     }
-        //Configurating CollectionView
+    //Configurating CollectionView
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return  dataProvider.entities.count
     }
@@ -63,13 +44,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if(dataProvider.entities.count == 0){
             noSongs.hidden = false
         }
-        //let getJson = JSONHelper().getJSON()
         refresher = UIRefreshControl()
         refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refresher.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
         self.collectionView?.addSubview(refresher)
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         }

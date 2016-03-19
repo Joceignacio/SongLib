@@ -15,7 +15,7 @@
 		C20FAFE01C9A305800AF39A1 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20FAFDF1C9A305800AF39A1 /* Song.swift */; };
 		C20FAFE21C9AC5BF00AF39A1 /* CoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20FAFE11C9AC5BF00AF39A1 /* CoreDataProvider.swift */; };
 		C20FAFE41C9B52EC00AF39A1 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20FAFE31C9B52EC00AF39A1 /* JSONHelper.swift */; };
-		C20FAFF41C9BD80500AF39A1 /* listContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20FAFF31C9BD80500AF39A1 /* listContainer.swift */; };
+		C20FAFF41C9BD80500AF39A1 /* colection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20FAFF31C9BD80500AF39A1 /* colection.swift */; };
 		C20FAFF61C9C3D9200AF39A1 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20FAFF51C9C3D9200AF39A1 /* CollectionViewCell.swift */; };
 		C20FAFF81C9C3DCB00AF39A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C20FAFF71C9C3DCB00AF39A1 /* Main.storyboard */; };
 		C20FAFFA1C9C3E0E00AF39A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C20FAFF91C9C3E0E00AF39A1 /* LaunchScreen.storyboard */; };
@@ -34,7 +34,7 @@
 		C20FAFDF1C9A305800AF39A1 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		C20FAFE11C9AC5BF00AF39A1 /* CoreDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataProvider.swift; sourceTree = "<group>"; };
 		C20FAFE31C9B52EC00AF39A1 /* JSONHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
-		C20FAFF31C9BD80500AF39A1 /* listContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = listContainer.swift; sourceTree = "<group>"; };
+		C20FAFF31C9BD80500AF39A1 /* colection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = colection.swift; sourceTree = "<group>"; };
 		C20FAFF51C9C3D9200AF39A1 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		C20FAFF71C9C3DCB00AF39A1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C20FAFF91C9C3E0E00AF39A1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 				C20FAFCA1C99E9A000AF39A1 /* ViewController.swift */,
 				C20FAFE11C9AC5BF00AF39A1 /* CoreDataProvider.swift */,
 				C20FAFE31C9B52EC00AF39A1 /* JSONHelper.swift */,
-				C20FAFF31C9BD80500AF39A1 /* listContainer.swift */,
+				C20FAFF31C9BD80500AF39A1 /* colection.swift */,
 				C20FAFDF1C9A305800AF39A1 /* Song.swift */,
 				C20FAFCF1C99E9A000AF39A1 /* Assets.xcassets */,
 				C20FAFD41C99E9A000AF39A1 /* Info.plist */,
@@ -234,7 +234,7 @@
 				C20FAFF61C9C3D9200AF39A1 /* CollectionViewCell.swift in Sources */,
 				C20FAFC91C99E9A000AF39A1 /* AppDelegate.swift in Sources */,
 				C20FAFE41C9B52EC00AF39A1 /* JSONHelper.swift in Sources */,
-				C20FAFF41C9BD80500AF39A1 /* listContainer.swift in Sources */,
+				C20FAFF41C9BD80500AF39A1 /* colection.swift in Sources */,
 				C20FAFDE1C9A0D0800AF39A1 /* SongLib.xcdatamodeld in Sources */,
 				C20FAFE21C9AC5BF00AF39A1 /* CoreDataProvider.swift in Sources */,
 			);
